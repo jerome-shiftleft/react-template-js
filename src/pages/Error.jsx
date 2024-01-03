@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/system/Box";
 import Header from "../layout/sections/Header";
+import { Helmet } from "react-helmet";
 
 const lightTheme = createTheme({
   palette: {
@@ -30,6 +31,9 @@ function ErrorPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Error</title>
+      </Helmet>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box id="page-wrap" className={`theme-${currentTheme}`}>
