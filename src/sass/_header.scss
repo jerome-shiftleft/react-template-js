@@ -1,0 +1,16 @@
+#header {
+  .toggle-theme-btn {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+.theme-dark {
+  #main-nav {
+    .nav-links {
+      > a {
+        color: #fff;
+      }
+    }
+  }
+}

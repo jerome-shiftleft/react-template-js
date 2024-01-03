@@ -1,39 +1,27 @@
-import { useState, useMemo } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import Button from '@mui/material/Button';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MasterLayout from "./layout/MasterLayout";
+import HomePage from "./pages/Home";
+import AboutPage from "./pages/About";
+import ErrorPage from "./pages/Error";
 import "./sass/app.scss";
 
-const lightTheme = createTheme({
-  palette: {
-    mode: "light",
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MasterLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "about", element: <AboutPage /> },
+    ],
+    errorElement: <ErrorPage />,
   },
-});
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+]);
 
 function App() {
-  const [currentTheme, setCurrentTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setCurrentTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
-  const theme = useMemo(() => {
-    return currentTheme === "light" ? lightTheme : darkTheme;
-  }, [currentTheme]);
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Button variant="contained" onClick={toggleTheme}>
-        Toggle Theme
-      </Button>
-    </ThemeProvider>
+    <>      
+      <RouterProvider router={router}  />
+    </>
   );
 }
 
