@@ -4,12 +4,6 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Header from "./sections/Header";
 
-// const theme = createTheme({
-//   palette: {
-//     mode: "light",
-//   },
-// });
-
 const lightTheme = createTheme({
   palette: {
     mode: "light",
