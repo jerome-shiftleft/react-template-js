@@ -1,7 +1,13 @@
 import { useState, useMemo } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import MasterLayout from "./layout/MasterLayout";
+import HomePage from "./pages/Home";
+import AboutPage from "./pages/About";
+import ErrorPage from "./pages/Error";
+
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Button from '@mui/material/Button';
 import "./sass/app.scss";
 
 const lightTheme = createTheme({
@@ -15,6 +21,18 @@ const darkTheme = createTheme({
     mode: "dark",
   },
 });
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MasterLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "about", element: <AboutPage /> },
+    ],
+    errorElement: <ErrorPage />,
+  },
+]);
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
@@ -30,9 +48,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Button variant="contained" onClick={toggleTheme}>
-        Toggle Theme
-      </Button>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }
