@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Outlet } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import Box from '@mui/system/Box';
 import Header from "./sections/Header";
 
 const lightTheme = createTheme({
@@ -32,10 +33,10 @@ function MasterLayout() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div id="page-wrap" className={`theme-${currentTheme}`}>
+        <Box id="page-wrap" className={`theme-${currentTheme}`}>
           <Header toggleTheme={toggleTheme} />
           <Outlet />
-        </div>
+        </Box>
       </ThemeProvider>
     </>
   );
