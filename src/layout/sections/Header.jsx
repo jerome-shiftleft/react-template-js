@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 import { Button } from "@mui/material";
@@ -18,5 +19,9 @@ function Header({toggleTheme}) {
     </>
   );
 }
+
+Header.propTypes = {
+  toggleTheme: PropTypes.func.isRequired,
+};
 
 export default Header;
