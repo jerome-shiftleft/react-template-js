@@ -38,8 +38,10 @@ function MasterLayout() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header toggleTheme={toggleTheme} />
-        <Outlet />
+        <div id="page-wrap" className={`theme-${currentTheme}`}>
+          <Header toggleTheme={toggleTheme} />
+          <Outlet />
+        </div>
       </ThemeProvider>
     </>
   );
