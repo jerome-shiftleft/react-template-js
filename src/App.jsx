@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import MasterLayout from "./layout/MasterLayout";
 import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
@@ -19,17 +18,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  //const [currentTheme, setCurrentTheme] = useState("light");
-
-  // const toggleTheme = () => {
-  //   console.log('toggling theme');
-  //   setCurrentTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  // };
-
-  // const theme = useMemo(() => {
-  //   return currentTheme === "light" ? lightTheme : darkTheme;
-  // }, [currentTheme]);
-
   return (
     <>      
       <RouterProvider router={router}  />
